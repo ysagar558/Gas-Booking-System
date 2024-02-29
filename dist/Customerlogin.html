@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Login - Gas Agency System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .Signup {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="loginForm">
+        <h2>Customer Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="validateLogin()">Login</button>
+        <a href="signup.html" target="_blank">
+            <button class="Signup">Sign Up</button>
+        </a>
+    </form>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js">
+
+        import { initializeApp } from 'firebase/app'
+        import {
+            getFirestore, collection, getDocs,
+            addDoc, deleteDoc, doc
+        } from 'firebase/firestore'
+        import { Script } from 'vm';
+        import { getAuth, signInWithCustomToken } from "firebase/auth";
+        import { getAuth, signInWithEmailAndPassword } from 'https://cdn.skypack.dev/firebase/auth';
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBvHWFmCPRSCaedYke1m703omWo1nU2FVo",
+            authDomain: "gas-agency-6.firebaseapp.com",
+            projectId: "gas-agency-6",
+            storageBucket: "gas-agency-6.appspot.com",
+            messagingSenderId: "555248706798",
+            appId: "1:555248706798:web:c25787f05920d53b5cbfff"
+        };
+
+        // Initialize Firebase
+        const firebaseApp = initializeApp(firebaseConfig);
+
+
+        var db = getFirestore();
+        // const btnE1=document.querySelector('.btn');
+        const auth = getAuth(firebaseApp);
+
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // User is signed in
+                    const user = userCredential.user;
+                    console.log("Logged in as:", user.email);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error("Login Error:", errorMessage);
+                });
+        });
+    </script>
+    <script src="bundle.js"></script>
+
+</body>
+
+</html>

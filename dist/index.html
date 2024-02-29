@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Agency System</title>
+    <style>
+        body {
+            background-image: url(https://icon2.cleanpng.com/20180403/lte/kisspng-gas-cylinder-fuel-tank-propane-clip-art-gas-5ac3af34811dc0.0441859015227738125289.jpg);
+            background-repeat: no-repeat;
+            background-position: 50% -20%;
+            background-size: 30%;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #555;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        section {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Gas Agency System</h1>
+</header>
+
+<nav>
+    <a href="#"onclick="loadHome()">Home</a>
+    <a href="#"onclick="loadCutomer()">Customers</a>
+    <a href="#"onclick="loadOrders()">Orders</a>
+    <a href="#" onclick="loadReports()">Reports</a>
+    <a href="#" onclick="loadContact()">Contact</a>
+    <a href="Adminlogin.html">Admin login</a>
+    <a href="Customerlogin.html">Login</a>
+</nav>
+
+<section id="content">
+    <!-- Content will be loaded dynamically here -->
+</section>
+
+
+<script>
+    function loadHome() {
+        document.getElementById('content').innerHTML = '<h2>Welcome to the Gas Agency System<br>You can book gas cylinder<br>check the status of gas cylinder and many<br> more things you can do here.</h2>';
+    
+    }
+    function loadCutomer()
+    {
+
+        document.getElementById('content').innerHTML ='<h2>Following are our daily customers<br><br>1)Sagar Yadav<br>2)Vikram Deshmukh<br>3)Abhishek Kate</h2>';
+    }
+
+    function loadOrders() {
+        document.getElementById('content').innerHTML = '<h2>Following givrs you status of orders<br><br>Pending Orders - 4<br>Completed Orders  - 10';
+    }
+
+    function loadReports() {
+        document.getElementById('content').innerHTML = '<h2>Following data gives you brief report about<br>the orders by customer<br><br>Name       Orders      Payment<br>Sagar        3               Done<br>Vikram      2            Pending</h2>';
+    }
+
+    function loadContact() {
+        document.getElementById('content').innerHTML = '<h2>Contact Details<br><br>Name - Sagar Yadav<br>Nobile No - 9881970055<br>E-Mail - ysagar558@gmail.com</h2>';
+    }
+   
+</script>
+<script src="bundle.js"></script>
+
+</body>
+</html>
